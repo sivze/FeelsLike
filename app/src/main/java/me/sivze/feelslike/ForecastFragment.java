@@ -263,7 +263,7 @@ public class ForecastFragment extends Fragment {
                         .appendQueryParameter(FORMAT_PARAM, format)
                         .appendQueryParameter(UNITS_PARAM, units)
                         .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
-                        .appendQueryParameter(APPID_PARAM, "6935c1205e59bc2acf883a72b60db79a")
+                        .appendQueryParameter(APPID_PARAM, KeyKeeper.openWeatherMapAPIKey)
                         .build();
 
                 url = new URL(builtUri.toString());
