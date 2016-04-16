@@ -8,12 +8,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".ForecastActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,20 +21,23 @@
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".ForecastActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.sivze.feelslike.MainActivity" />
+                android:value="me.sivze.feelslike.ForecastActivity" />
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".ForecastActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.sivze.feelslike.MainActivity" />
+                android:value="me.sivze.feelslike.ForecastActivity" />
         </activity>
-    </application>
 
+        <provider
+            android:name=".data.WeatherProvider"
+            android:authorities="me.sivze.feelslike"
+            />
+    </application>
 </manifest>
