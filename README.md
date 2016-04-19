@@ -1,6 +1,6 @@
 A simple Weather App for Android.
 
-This app needs an API key from http://openweathermap.org/api to function.
+This app used an API key from http://openweathermap.org/api.
 
 Features:
 - Material design
