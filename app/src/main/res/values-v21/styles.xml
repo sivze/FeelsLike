@@ -1,7 +1,9 @@
-<resources>>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings activity theme. -->
+    <style name="SettingsTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/feelslike_blue</item>
+        <item name="android:colorPrimaryDark">@color/feelslike_dark_blue</item>
     </style>
+
 </resources>
