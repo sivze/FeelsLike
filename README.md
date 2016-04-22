@@ -1,12 +1,16 @@
-A simple Weather App for Android.
+##Feels Like
+A simple Weather App for Android. This app was made as part of Udacity Android Nanodegree.
 
-This app used an API key from http://openweathermap.org/api.
+##Installation
+This app uses an API key from http://openweathermap.org/api.
 
-Features:
+##Features:
 - Material design
 - Adaptive and responsive UI
 - Offline usage (with SQLite)
 
-![alt tag](http://makeagif.com/i/ZuesfS)
+##Tablet UI
+![alt tag](https://github.com/sivze/FeelsLike/blob/master/Tablet_Demo.gif )
 
-![alt tag](http://makeagif.com/i/AKTByO)
+##Mobile UI
+![alt tag](https://github.com/sivze/FeelsLike/blob/master/Phone_Demo.gif)
