@@ -6,3 +6,7 @@ Features:
 - Material design
 - Adaptive and responsive UI
 - Offline usage (with SQLite)
+
+![alt tag](http://makeagif.com/i/ZuesfS)
+
+![alt tag](http://makeagif.com/i/AKTByO)
