@@ -26,7 +26,6 @@ build.xml
 ant.properties
 local.properties
 project.properties
-gradle.properties
 
 # Eclipse project files
 .classpath
@@ -38,11 +37,7 @@ gradle.properties
 *.iml
 *.ipr
 *.iws
-/local.properties
-*~
-*.iml
 
 ##Gradle-based build
 .gradle
 build/
-app/build.gradle
