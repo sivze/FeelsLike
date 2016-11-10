@@ -44,15 +44,9 @@ import java.util.Vector;
 
 import me.sivze.feelslike.BuildConfig;
 import me.sivze.feelslike.ForecastActivity;
-import me.sivze.feelslike.ForecastAdapter;
 import me.sivze.feelslike.R;
 import me.sivze.feelslike.Utility;
 import me.sivze.feelslike.data.WeatherContract;
-
-import static me.sivze.feelslike.ForecastAdapter.LOCATION_STATUS_OK;
-import static me.sivze.feelslike.ForecastAdapter.LOCATION_STATUS_SERVER_DOWN;
-import static me.sivze.feelslike.ForecastAdapter.LOCATION_STATUS_SERVER_INVALID;
-
 
 public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
     public final String LOG_TAG = SunshineSyncAdapter.class.getSimpleName();
@@ -584,7 +578,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
      * @param c Context to get the PreferenceManager from.
      * @param locationStatus The IntDef value to set
      */
-    static private void setLocationStatus(Context c, @ForecastAdapter.LocationStatus int locationStatus){
+    static private void setLocationStatus(Context c, @SunshineSyncAdapter.LocationStatus int locationStatus){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(c);
         SharedPreferences.Editor spe = sp.edit();
         spe.putInt(c.getString(R.string.pref_location_status_key), locationStatus);

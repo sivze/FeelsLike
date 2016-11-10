@@ -18,7 +18,6 @@ import java.util.Date;
 
 import me.sivze.feelslike.sync.SunshineSyncAdapter;
 
-import static me.sivze.feelslike.ForecastAdapter.LOCATION_STATUS_UNKNOWN;
 import static me.sivze.feelslike.sync.SunshineSyncAdapter.LOCATION_STATUS_UNKNOWN;
 
 public class Utility {
