@@ -1,8 +1,10 @@
 package me.sivze.feelslike;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
+import me.sivze.feelslike.gcm.RegistrationIntentService;
 import me.sivze.feelslike.sync.SunshineSyncAdapter;
 
 public class ForecastActivity extends ActionBarActivity implements ForecastFragment.Callback{
@@ -21,6 +24,8 @@ public class ForecastActivity extends ActionBarActivity implements ForecastFragm
     private String mLocation;
     private boolean mTwoPane;
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +57,22 @@ public class ForecastActivity extends ActionBarActivity implements ForecastFragm
         forecastFragment.setUseTodayLayout(!mTwoPane);
 
         SunshineSyncAdapter.initializeSyncAdapter(this);
-        if(!checkPlayServices()){
-            // this is where we could either prompt a user that they should install
-            // the latest version of Google Play Services, or add an error snackbar
-            // that some features won't be available.
+
+        // If Google Play Services is up to date, we'll want to register GCM. If it is not, we'll
+        // skip the registration and this device will not receive any downstream messages from
+        // our fake server. Because weather alerts are not a core feature of the app, this should
+        // not affect the behavior of the app, from a user perspective.
+        if (checkPlayServices()) {
+            // Because this is the initial creation of the app, we'll want to be certain we have
+            // a token. If we do not, then we will start the IntentService that will register this
+            // application with GCM.
+            SharedPreferences sharedPreferences =
+                    PreferenceManager.getDefaultSharedPreferences(this);
+            boolean sentToken = sharedPreferences.getBoolean(SENT_TOKEN_TO_SERVER, false);
+            if (!sentToken) {
+                Intent intent = new Intent(this, RegistrationIntentService.class);
+                startService(intent);
+            }
         }
     }
 
